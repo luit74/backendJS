@@ -1,4 +1,5 @@
 import mongoose , {Schema} from "mongoose";
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2"; //the true power of mongoDB comes from this package only
 
 const videoSchema = new Schema(
     {
@@ -24,7 +25,7 @@ const videoSchema = new Schema(
         },
         views: {
             type: Number,
-            default: 0
+            default: 0 //initially it is zero but we will continuosly keep on updating it .
         },
         isPublished: {
             type: Boolean,
@@ -39,5 +40,7 @@ const videoSchema = new Schema(
         timestamps: true
     })
 
+
+    videoSchema.plugin(mongooseAggregatePaginate)
 
     export const Video = mongoose.model("Video", videoSchema)
