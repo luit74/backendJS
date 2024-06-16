@@ -18,4 +18,14 @@ app.use(express.urlencoded({extended: true, limit: "16kb"})) //these are data wh
 app.use(express.static("public")) // this configuration is used to store files , folder , pdf , images etc which we want to store in our own servers . for such work we use this configuration . and Public is the location where we want to store it .
 app.use(cookieParser()) //these are use to access the cookies of the user's browser and also set it  . So that we could perform CRUD operations
 
+
+// routes
+// routes are imported like this only , in the middle of the codes
+
+import userRouter from './router/user.routes.js'
+
+
+// routes declaration :- these are the few good practices which we follow while declaring the routes
+app.use("/api/v1/users", userRouter)
+
 export {app}
