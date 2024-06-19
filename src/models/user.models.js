@@ -61,7 +61,7 @@ userSchema.pre("save", async function (next) { // we have use the middleware fla
     // (2).. but there is one problem that we donot want the password to change and save again and again if we modify other items . we want the password to save only when we have modified the password then only we will save it. to tackle this problem we will use the line of code below.
     if (!this.isModified("password")) return next();
     
-    this.password = bcrypt.hash(this.password, 10) //(1)..for encryption we use bcrypt.hash method inside which we mention what we want to encrypt and how many rounds of encryption we want to do(in our case 10)
+    this.password = await bcrypt.hash(this.password, 10) //(1)..for encryption we use bcrypt.hash method inside which we mention what we want to encrypt and how many rounds of encryption we want to do(in our case 10)
     next()
 })
 

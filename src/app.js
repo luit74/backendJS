@@ -22,7 +22,7 @@ app.use(cookieParser()) //these are use to access the cookies of the user's brow
 // routes
 // routes are imported like this only , in the middle of the codes
 
-import userRouter from './router/user.routes.js'
+import userRouter from './routes/user.routes.js'
 
 
 // routes declaration :- these are the few good practices which we follow while declaring the routes
